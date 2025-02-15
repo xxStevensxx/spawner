@@ -64,7 +64,14 @@ function love.update(dt)
     end
 
     for nb = 1, #lstEnnemi do 
-        lstEnnemi[nb].x = lstEnnemi[nb].x + 120 * dt
+        if lstEnnemi[nb].angle == math.pi / 2 then
+                lstEnnemi[nb].y = lstEnnemi[nb].y + 120 * dt
+
+        elseif lstEnnemi[nb].angle == 0 then
+            lstEnnemi[nb].x = lstEnnemi[nb].x + 120 * dt
+        elseif lstEnnemi[nb].angle == math.pi * 1.5 then
+            lstEnnemi[nb].y = lstEnnemi[nb].y - 120 * dt
+        end
     end
 
 
